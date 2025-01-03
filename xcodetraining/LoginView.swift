@@ -8,8 +8,50 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State var email: String = "";
+    @State var password: String = "";
+    @State var goToMain: Bool = false;
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       NavigationView {
+            VStack {
+                NavigationLink(destination: MainView(), isActive: $goToMain, label: { EmptyView()})
+                
+                HStack {
+                    Spacer()
+                    Text("Login Form").font(.title).fontWeight(.bold)
+                    Spacer()
+                }
+                Form {
+                    Section {
+                        TextField("Email", text: $email)
+                        SecureField("Password", text: $password)
+                    }
+                    
+                    Section {
+                        Button(action: {
+                            self.goToMain = true;
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text("Login").fontWeight(.bold).foregroundColor(Color.orange)
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+                .foregroundStyle(Color.blue)
+                .background(Color.yellow)
+                
+                NavigationLink(
+                    destination: RegisterView(),
+                    label: {
+                        Text("Register")
+                    }
+                )
+            }
+           
+        }.navigationBarHidden(true)
     }
 }
 

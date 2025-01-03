@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct xcodetrainingApp: App {
+
+    var isUserLoggedIn: Bool = false;
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isUserLoggedIn {
+                MainView()
+            } else {
+                LoginView()
+            }
         }
     }
 }
