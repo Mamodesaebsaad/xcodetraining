@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, Saad!")
+            Text("Hello World!").blur(radius: 0.0)
+                
         }
         .padding()
     }
@@ -22,3 +23,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+ 
